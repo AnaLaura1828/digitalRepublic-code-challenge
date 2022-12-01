@@ -57,7 +57,7 @@ export default class Cadastro extends Component {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Digite seu Nome"
+                placeholder="Digite seu nome"
                 required
                 value={this.state.users.name}
                 onChange={this.handleInputChange}
@@ -70,20 +70,20 @@ export default class Cadastro extends Component {
                 type="text"
                 id="cpf"
                 name="cpf"
-                placeholder="Digite Seu CPF"
+                placeholder="Digite seu CPF"
                 required
                 value={this.state.users.cpf}
                 onChange={this.handleInputChange}
               />
             </div>
             <div>
-              <label htmlFor="balance">Saldo da Conta</label>
+              <label htmlFor="balance">Saldo em Conta</label>
               <br />
               <input
                 type="number"
                 id="balance"
                 name="balance"
-                placeholder="Digite o saldo que deseja depositar"
+                placeholder="Digite o saldo que deseja"
                 required
                 value={this.state.users.balance}
                 onChange={this.handleInputChange}

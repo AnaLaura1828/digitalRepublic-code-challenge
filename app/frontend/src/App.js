@@ -11,7 +11,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/cadastro" component={ Cadastro } />
-          <Route exact path="/profile" component={ Profile } />
+          <Route exact path="/profile/:id" component={ Profile } />
         </Switch>
       </BrowserRouter>
     </div>
