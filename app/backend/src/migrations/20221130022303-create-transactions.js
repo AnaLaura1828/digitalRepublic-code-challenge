@@ -7,11 +7,11 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      id_send: {
+      send: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      id_destiny: {
+      destiny: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
@@ -19,12 +19,16 @@ module.exports = {
         type: Sequelize.DOUBLE,
         allowNull: false,
       },
-      date: {
-        type: Sequelize.DATE,
+      createdAt: {
         allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull:false,
+        type: Sequelize.DATE
       }
     },
-    { timestamp: false });
+    );
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Transactions');

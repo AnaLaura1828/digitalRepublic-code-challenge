@@ -26,8 +26,17 @@ const getById = async (id) => {
     return { type: null, message: idUser };
   };
 
+const upDateId = async (id, balance) => {
+    const [result] = await User.update(
+      { balance },
+      { where: { id } },
+    );
+    return result;
+  }
+
 module.exports = {
     createUser,
     getAll,
     getById,
+    upDateId,
 }

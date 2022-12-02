@@ -1,16 +1,13 @@
 const userService = require("../services/userService");
-const middleware = require("../middleware/validateLogin");
 
 const createNewUser = async (req, res) => {
-  const newAccount = await userService.createUser(req.body);
-  return res.status(201).json(newAccount);
-  //   const { error } = middleware.validate(req.body);
-  //   if (error) return res.status(400).json({ message: error.details[0].message });
-
-  //   const { type, message } = await userService.createUser(req.body);
-
-  //   if (type) return res.status(type).json({ message });
-  //   res.status(200).json(message);
+  try {
+    const newAccount = await userService.createUser(req.body);
+    if (!newAccount) return res.status(404).json({ message: ' Invalid register' })
+    return res.status(201).json(newAccount);
+  } catch (error) {
+    res.status(500).json({ message: 'Registration not performed'})
+  }
 };
 
 const getAllController = async (_req, res) => {
@@ -26,8 +23,24 @@ const getByIds = async (req, res) => {
   return res.status(200).json(message);
 };
 
+const upDate = async (req, res) => {
+  try {
+    const { balance } = req.body;
+    const { id } = req.params;
+    const updatedUser = await userService.upDateId(id, balance);
+
+    if (!updatedUser) return res.status(404).json({ message: 'User not found' });
+
+    return res.status(200).json({ message: 'User update sucessely!' });    
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message:' Error !' });
+  }
+}
+
 module.exports = {
   createNewUser,
   getAllController,
   getByIds,
+  upDate,
 };

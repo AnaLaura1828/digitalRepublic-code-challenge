@@ -9,7 +9,7 @@ export default class Cadastro extends Component {
       cpf: "",
       balance: "",
     },
-    redirect: false
+    redirect: false,
   };
 
   handleInputChange = (event) => {
@@ -26,7 +26,8 @@ export default class Cadastro extends Component {
     const {
       users: { name, cpf, balance },
     } = this.state;
-    api.post("/user", {
+    api
+      .post("/user", {
         name,
         cpf,
         balance,
@@ -48,12 +49,13 @@ export default class Cadastro extends Component {
     } else {
       return (
         <div>
-          <h1>Criar Conta</h1>
-          <form onSubmit={this.handleEventSubmit}>
+          <form className="form-login" onSubmit={this.handleEventSubmit}>
+            <h2>Criar Conta</h2>
             <div>
               <label htmlFor="name">Nome</label>
               <br />
               <input
+                className="inputs-cadastro"
                 type="text"
                 id="name"
                 name="name"
@@ -67,6 +69,7 @@ export default class Cadastro extends Component {
               <label htmlFor="cpf">CPF</label>
               <br />
               <input
+                className="inputs-cadastro"
                 type="text"
                 id="cpf"
                 name="cpf"
@@ -80,6 +83,7 @@ export default class Cadastro extends Component {
               <label htmlFor="balance">Saldo em Conta</label>
               <br />
               <input
+                className="inputs-cadastro"
                 type="number"
                 id="balance"
                 name="balance"
@@ -91,7 +95,9 @@ export default class Cadastro extends Component {
             </div>
             <br />
             <div>
-              <button type="submit">Criar Conta</button>
+              <button className="btn-criacao" type="submit">
+                Criar Conta
+              </button>
             </div>
           </form>
         </div>

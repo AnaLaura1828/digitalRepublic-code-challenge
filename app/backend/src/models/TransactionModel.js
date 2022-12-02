@@ -1,22 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
     const Transaction = sequelize.define('Transaction', {
-        id: { 
-            type: DataTypes.INTEGER, 
-            primaryKey: true, 
-            autoIncrement: true 
-        },
-        id_send: DataTypes.INTEGER,
-        id_destiny: DataTypes.INTEGER,
+        send: DataTypes.INTEGER,
+        destiny: DataTypes.INTEGER,
         value: DataTypes.DOUBLE,
-        date: DataTypes.DATE,
       },
       {
-        timestamps: false,
+        timestamps: true,
         tableName: 'Transactions',
-        underscored: true,
+        underscored: false,
       });
   
     return Transaction;
   };
-
-  //select e map p mopstra as transações
